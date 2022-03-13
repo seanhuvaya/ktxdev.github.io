@@ -10,7 +10,7 @@ const Header = () => {
     }
 
     return (
-        <nav className='fixed w-full top-0 left-0 z-10 bg-white md:flex md:justify-between md:items-center py-4 px-5 md:px-40 font-roboto shadow'>
+        <nav className='fixed w-full top-0 left-0 z-10 py-4 px-5 md:py-6 md:px-40 lg:px-72 bg-white md:flex md:justify-between md:items-center font-roboto shadow'>
             <div className="flex justify-between items-center">
                 {/* Logo SVG */}
                 <a href="https://ktxdev.com">
