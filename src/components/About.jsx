@@ -3,7 +3,7 @@ import hero_image from '../Assets/hero.png';
 
 const About = () => {
     return (
-        <div className='w-full flex flex-col-reverse items-center py-16 px-5 text-center md:flex-row md:justify-between md:text-left md:py-40 md:px-40'>
+        <div className='w-full flex flex-col-reverse items-center py-48 px-5 text-center md:flex-row md:justify-between md:text-left md:py-40 md:px-40'>
             <div className="font-montserrat mt-16">
                 <h4 className="font-roboto font-bold text-red-500 text-lg" >Hi, my name is</h4>
                 <h2 className="text-3xl font-bold">Sean Huvaya</h2>

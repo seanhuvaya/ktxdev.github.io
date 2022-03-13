@@ -5,7 +5,7 @@ const MenuItems = ({ onShowMenu, showMenu }) => {
         <div className={showMenu ? 'md:hidden absolute w-full h-screen inset-0 bg-gray-800 py-8 px-6 font-roboto' : 'hidden'}>
             <div className=' flex flex-col items-center text-white' >
                 <a className="self-end" onClick={onShowMenu}>
-                    <svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 491 491">
+                    <svg className="cursor-pointer h-5 w-5" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 491 491">
                         <g clip-path="url(#clip0_60_52)">
                             <path className="fill-gray-50" fill="#000" d="M435.325 490.127l54.729-54.729L54.768.111.039 54.84l435.286 435.287zM176.276 259.17L-.003 435.449l54.73 54.729 176.278-176.279-54.729-54.729zM314.014 231.43L490.292 55.151 435.564.423 259.285 176.7l54.729 54.729z" />
                         </g>
@@ -16,7 +16,7 @@ const MenuItems = ({ onShowMenu, showMenu }) => {
                         </defs>
                     </svg>
                 </a>
-                <a className="cursor-pointer mt-8 p-4 hover:text-red-500">Home</a>
+                <a className="cursor-pointer mt-16 p-4 hover:text-red-500">Home</a>
                 <a className="cursor-pointer p-4 hover:text-red-500">Projects</a>
                 <a className="cursor-pointer p-4 hover:text-red-500">Exprience &amp; Skills</a>
                 <a className="cursor-pointer p-4 hover:text-red-500">Contact</a>
