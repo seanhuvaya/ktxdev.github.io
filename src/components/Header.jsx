@@ -10,7 +10,7 @@ const Header = () => {
     }
 
     return (
-        <nav className='md:flex md:justify-between md:items-center py-4 px-5 md:px-40 font-roboto'>
+        <nav className='md:flex md:justify-between md:items-center py-4 px-5 md:px-40 font-roboto shadow'>
             <div className="flex justify-between items-center">
                 {/* Logo SVG */}
                 <a href="https://ktxdev.com">
