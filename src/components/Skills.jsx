@@ -8,7 +8,7 @@ const Skills = () => {
 
     return (
         <div className='pt-20 pb-10'>
-            <h6 className='font-roboto font-bold text-red-500 text-center sm:text-xs md:text-lg'>Here are the technologies I've been working with recently</h6>
+            <h6 className='font-roboto text-red-500 text-center font-light '>Here are the technologies I've been working with recently</h6>
             <div className='grid grid-cols-2 md:grid-cols-3 gap-8 mt-10' >
                 <div>
                     <h4 className='font-bold font-roboto my-2'>Language</h4>
