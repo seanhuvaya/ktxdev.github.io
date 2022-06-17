@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MenuItems from './MenuItems'
+import MenuItems from './MobileMenu'
 
 const Header = () => {
 
@@ -10,8 +10,8 @@ const Header = () => {
     }
 
     return (
-        <nav className='fixed w-full top-0 left-0 z-10 py-4 px-5 md:py-6 md:px-40 lg:px-72 bg-white md:flex md:justify-between md:items-center font-roboto shadow'>
-            <div className="flex justify-between items-center">
+        <nav className='fixed w-full top-0 left-0 z-10 py-4 px-5 md:py-6 lg:px-40 bg-white md:flex md:justify-between md:items-center font-roboto shadow'>
+            <div className="flex justify-between items-center w-full xl:w-auto ">
                 {/* Logo SVG */}
                 <a href="https://ktxdev.com">
                     <svg className='h-10 w-10' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 66 77">
@@ -21,7 +21,7 @@ const Header = () => {
                     </svg>
                 </a>
 
-                <button className="md:hidden" onClick={toggleMenu}>
+                <button className="xl:hidden items-end" onClick={toggleMenu}>
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 385 385">
                         <g clip-path="url(#clip0_55_29)">
                             <path fill="#000" d="M12.03 84.212h360.909c6.641 0 12.03-5.39 12.03-12.03 0-6.641-5.39-12.03-12.03-12.03H12.03C5.39 60.152 0 65.541 0 72.182c0 6.641 5.39 12.03 12.03 12.03zM372.939 180.455H12.03c-6.641 0-12.03 5.39-12.03 12.03s5.39 12.03 12.03 12.03h360.909c6.641 0 12.03-5.39 12.03-12.03s-5.389-12.03-12.03-12.03zM372.939 300.758H12.03c-6.641 0-12.03 5.39-12.03 12.03 0 6.641 5.39 12.03 12.03 12.03h360.909c6.641 0 12.03-5.39 12.03-12.03.001-6.641-5.389-12.03-12.03-12.03z" />
@@ -36,14 +36,14 @@ const Header = () => {
                 </button>
             </div>
 
-            <div className="hidden md:flex space-x-16">
-                <button className="hover:text-red-500">Home</button>
+            <div className="hidden xl:flex xl:flex-grow xl:justify-center space-x-8">
+                <a className="hover:text-red-500 active:text-red-500">Home</a>
                 <button className="hover:text-red-500">Projects</button>
                 <button className="hover:text-red-500">Exprience &amp; Skills</button>
                 <button className="hover:text-red-500">Contact</button>
             </div>
 
-            <div className="hidden md:flex space-x-4">
+            <div className="hidden xl:flex space-x-4">
                 {/* Linkedin Logo */}
                 <a href="https://www.linkedin.com/in/sean-huvaya-bba3171b9/" target="_blank">
                     <svg className="cursor-pointer group" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 36 36">

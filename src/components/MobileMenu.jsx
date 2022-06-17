@@ -2,7 +2,7 @@ import React from 'react'
 
 const MenuItems = ({ onShowMenu, showMenu }) => {
     return (
-        <div className={showMenu ? 'md:hidden absolute w-full h-screen inset-0 bg-gray-800 py-8 px-6 font-roboto' : 'hidden'}>
+        <div className={showMenu ? 'xl:hidden lg:px-40 absolute w-full h-screen inset-0 bg-gray-800 py-8 px-6 font-roboto' : 'hidden'}>
             <div className=' flex flex-col items-center text-white' >
                 <a className="self-end" onClick={onShowMenu}>
                     <svg className="cursor-pointer h-5 w-5" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 491 491">
