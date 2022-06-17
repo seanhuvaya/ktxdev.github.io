@@ -1,11 +1,13 @@
+import Contact from "./components/Contact";
 import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <h1 className="px-5 md:px-10 lg:px-44 xl:px-60">
+    <h1>
       <Navbar />
       <Intro />
+      <Contact />
     </h1>
   );
 }
