@@ -15,7 +15,7 @@ const About = () => {
                     Get In Touch
                 </a>
             </div>
-            <img className='h-40 lg:h-56 ' src={hero_image} alt="Hero Image" />
+            <img className='h-40 lg:h-56 xl:h-80' src={hero_image} alt="Hero Image" />
         </div>
     )
 }
