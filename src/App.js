@@ -1,4 +1,5 @@
 import Contact from "./components/Contact";
+import Experience from "./components/Experience";
 import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
 
@@ -7,6 +8,7 @@ function App() {
     <h1>
       <Navbar />
       <Intro />
+      <Experience />
       <Contact />
     </h1>
   );
