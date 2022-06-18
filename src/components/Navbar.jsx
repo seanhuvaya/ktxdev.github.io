@@ -36,7 +36,7 @@ const Header = () => {
                 </button>
             </div>
 
-            <div className="hidden xl:flex xl:flex-grow xl:justify-center space-x-8">
+            <div className="hidden xl:flex xl:flex-grow xl:justify-center gap-20">
                 <a className="hover:text-red-500 active:text-red-500">Home</a>
                 <button className="hover:text-red-500">Projects</button>
                 <button className="hover:text-red-500">Exprience &amp; Skills</button>
