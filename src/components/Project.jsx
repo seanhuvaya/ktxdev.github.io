@@ -2,7 +2,7 @@ import React from 'react'
 
 const Project = ({ project, index }) => {
     return (
-        <div className='md:grid md:grid-cols-5 md:gap-8 items-center md:my-20' >
+        <div className='md:grid md:grid-cols-5 md:gap-8 items-center md:mt-8 lg:mt-20' >
             <img className={`${(index % 2 == 0) && 'order-2'} my-4 col-span-3 rounded-xl shadow-xl`} src="https://github.com/ktxdev/expense-tracker/blob/main/docs/demo-1.png?raw=true" alt="Expense Tracker" />
             <div className='order-1 py-2 my-4 col-span-2'>
                 <h4 className='text-red-500 md:text-2xl font-montserrat font-bold py-2' >{project.title}</h4>
