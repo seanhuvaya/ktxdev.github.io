@@ -5,7 +5,7 @@ const Contact = () => {
     const inputStyle = 'w-full py-2 md:py-4 px-4 bg-red-100 placeholder:text-gray-700 outline-none rounded-md border border-red-300';
 
     return (
-        <div className='w-full bg-gray-50 pt-16 lg:pt-24 px-20 lg:px-40 xl:px-96' >
+        <div className='w-full bg-gray-50 pt-16 lg:pt-24 px-5 md:px-20 lg:px-40 xl:px-96' >
             <h4 className='text-2xl font-sansita-swashed text-center md:text-3xl lg:text-4xl'>Get in <span className='text-red-500' >Touch</span> </h4>
             <form className='mt-8 lg:mt-20 flex flex-col gap-4 lg:gap-8'>
                 <div className='flex flex-col gap-4 lg:gap-8 md:flex-row' >
