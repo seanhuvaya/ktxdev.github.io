@@ -11,7 +11,7 @@ const Header = () => {
     }
 
     return (
-        <nav className='fixed w-full top-0 left-0 z-10 py-4 px-5 md:py-6 lg:px-40 bg-white md:flex md:justify-between md:items-center font-roboto shadow'>
+        <nav className='fixed w-full top-0 left-0 z-20 py-4 px-5 md:py-6 lg:px-40 bg-white md:flex md:justify-between md:items-center font-roboto shadow'>
             <div className="flex justify-between items-center w-full xl:w-auto ">
                 {/* Logo SVG */}
                 <a href="https://ktxdev.com">
