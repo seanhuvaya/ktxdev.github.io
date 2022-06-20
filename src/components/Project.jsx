@@ -4,7 +4,7 @@ import Carousel from './Carousel'
 const Project = ({ project, index }) => {
     
     return (
-        <div className='md:grid md:grid-cols-5 md:gap-8 items-center md:mt-8 lg:mt-20' >
+        <div className='md:grid md:grid-cols-5 md:gap-8 items-center mt-4 md:mt-8 lg:mt-20' >
             <Carousel className={`${(index % 2 === 0) && 'order-2'} col-span-3 rounded-xl shadow-xl`}
                 images={project.screenshots} 
                 title={project.title} />
