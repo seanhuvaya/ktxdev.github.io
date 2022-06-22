@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import resume from '../Assets/sean-huvaya-cv.pdf'
 import MenuItems from './MobileMenu'
 
-const Header = () => {
+const Navbar = ({activeId, onNavItemClick}) => {
 
     const [showMenu, setShowMenu] = useState(false)
 
@@ -38,10 +38,10 @@ const Header = () => {
             </div>
 
             <div className="hidden xl:flex xl:flex-grow xl:justify-center gap-20">
-                <button className="hover:text-red-500 active:text-red-500">Home</button>
-                <button className="hover:text-red-500">Projects</button>
-                <button className="hover:text-red-500">Exprience &amp; Skills</button>
-                <button className="hover:text-red-500">Contact</button>
+                <button id='summary' onClick={onNavItemClick} className={`hover:text-red-500  ${activeId === 'summary' && 'text-red-500'}`}>Home</button>
+                <button id='projects' onClick={onNavItemClick} className={`hover:text-red-500  ${activeId === 'projects' && 'text-red-500'}`}>Projects</button>
+                <button id='experience' onClick={onNavItemClick} className={`hover:text-red-500  ${activeId === 'experience' && 'text-red-500'}`}>Exprience &amp; Skills</button>
+                <button id='contact' onClick={onNavItemClick} className={`hover:text-red-500  ${activeId === 'contact' && 'text-red-500'}`}>Contact</button>
             </div>
 
             <div className="hidden xl:flex space-x-4">
@@ -66,4 +66,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Navbar
