@@ -38,8 +38,7 @@ function App() {
   const scrollIntoView = (ref, id) => {
     ref.current.scrollIntoView({
       behavior: 'smooth',
-      block: 'nearest',
-      inline: 'start'
+      block: 'start'
     });
 
     setActiveId(id)
