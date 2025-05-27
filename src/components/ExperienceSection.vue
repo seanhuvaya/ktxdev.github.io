@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <a href="#" class="inline-block text-[#64ffda] no-underline mt-4 transition-colors duration-200 hover:text-[#ccd6f6]">View Full Résumé</a>
+        <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="inline-block text-[#64ffda] no-underline mt-4 transition-colors duration-200 hover:text-[#ccd6f6]">View Full Résumé</a>
       </div>
     </div>
   </section>
