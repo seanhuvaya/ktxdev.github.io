@@ -1,5 +1,4 @@
 import './assets/main.css'
-// import './index.css'
 
 import { createApp, ref, provide, h } from 'vue'
 import App from './App.vue'
