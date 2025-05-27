@@ -3,11 +3,13 @@
     <div class="lg:sticky lg:top-8 h-fit flex flex-col justify-between gap-8">
       <div>
         <Header />
-        <Navigation 
-          :sections="sections" 
-          :active-section="activeSection"
-          @scroll="scrollToSection" 
-        />
+        <div class="hidden md:block">
+          <Navigation 
+            :sections="sections" 
+            :active-section="activeSection"
+            @scroll="scrollToSection" 
+          />
+        </div>
       </div>
       
       <SocialLinks :links="socialLinks" />
@@ -57,10 +59,10 @@ import MachineLearningIcon from './components/icons/MachineLearningIcon.vue'
 
 const sections = [
   { id: 'about', name: 'About' },
-  { id: 'skills', name: 'Skills' },
   { id: 'experience', name: 'Experience' },
   { id: 'education', name: 'Education' },
-  { id: 'projects', name: 'Projects' }
+  { id: 'projects', name: 'Projects' },
+  { id: 'skills', name: 'Skills' }
 ]
 
 const activeSection = ref('about')
@@ -95,7 +97,7 @@ const skills = [
       { name: 'Scikit-learn', icon: ScikitLearnIcon },
       { name: 'Pandas', icon: PandasIcon },
       { name: 'Numpy', icon: NumpyIcon },
-      { name: 'Matplotlib', icon: MatplotlibIcon },
+      { name: 'Matplotlib', icon: MatplotlibIcon }
     ]
   },
   {
@@ -147,23 +149,47 @@ const education = [
   {
     school: 'Yeshiva University',
     degree: 'Master of Science, Artificial Intelligence',
-    date: 'Expected Dec 2025'
+    date: 'Expected Dec 2025',
+    courses: [
+      'Machine Learning',
+      'Deep Learning',
+      'Natural Language Processing',
+      'Reinforcement Learning',
+      'AI Ethics'
+    ]
   },
   {
     school: 'University of Zimbabwe',
     degree: 'Bachelor of Business Studies and Computing Science',
-    date: 'Aug 2017 – Dec 2022'
+    date: 'Aug 2017 – Dec 2022',
+    courses: [
+      'Algorithms & Data Structures',
+      'Database Systems',
+      'Software Engineering',
+      'Operating Systems',
+      'Business Analytics'
+    ]
   }
 ]
 
 const projects = [
   {
-    title: 'Deep Learning–Based Canine Cardiomegaly Detection',
-    description: 'Designed and trained a ResNet-101-based CNN to detect six key anatomical points in canine thoracic X-rays for automated Vertebral Heart Size (VHS) estimation. Achieved a mean absolute error (MAE) of 0.798 and MAPE of 8.64% on a real-world dataset of 2,000 dog radiographs. Developed a custom PyTorch pipeline with data augmentation, keypoint regression, and real-time inference capabilities.',
-    image: '',
-    link: '#',
-    technologies: ['PyTorch', 'Deep Learning', 'Computer Vision', 'CNN']
-  }
+    title: 'Git-Inspired Version Control System',
+    description: 'Built a terminal-based application in Python to replicate core Git version control functionalities and deepen system-level understanding. Enhanced the project with a Java Spring Boot backend and a Vue.js frontend to simulate a GitHub-like interface for managing and listing repositories. Showcases cross-language development, version control concepts, and full-stack integration.',
+    image: 'https://placehold.co/120x80?text=Git+CLI',
+    link: '',
+    technologies: ['Python', 'Java', 'Spring Boot', 'Vue.js'],
+    comingSoon: true
+  },
+  {
+    title: 'Quizscribe',
+    description: 'Developed an intelligent web application that transforms PDF study notes into personalized quizzes using natural language processing. Users can upload their learning materials and instantly receive dynamic multiple-choice and multi-select questions. The app incorporates a spaced repetition system to reinforce retention, ensuring users review the right content at the right time. Designed to streamline active recall and long-term memory retention for students and self-learners.',
+    image: 'https://placehold.co/120x80?text=Quiz+App',
+    link: '',
+    technologies: ['Python', 'NLP', 'LangChain', 'FastAPI', 'PostgreSQL', 'Hugging Face'],
+    comingSoon: true
+  },
+  
 ]
 
 const aboutSection = ref(null)
@@ -171,26 +197,33 @@ const experienceSection = ref(null)
 const projectsSection = ref(null)
 
 const observer = new IntersectionObserver((entries) => {
+  let found = false;
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       activeSection.value = entry.target.id
+      found = true;
     }
   })
+  if (!found && entries.length) {
+    const last = entries[entries.length - 1]
+    activeSection.value = last.target.id
+  }
 }, {
   threshold: 0.1,
-  rootMargin: '-20% 0px -80% 0px'
+  rootMargin: '-10% 0px -40% 0px'
 })
 
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId)
-  element.scrollIntoView({ behavior: 'smooth' })
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 
 onMounted(() => {
-  // Wait for the next tick to ensure all components are mounted
   nextTick(() => {
-    const sections = ['about', 'experience', 'projects']
-    sections.forEach(sectionId => {
+    const sectionIds = sections.map(s => s.id)
+    sectionIds.forEach(sectionId => {
       const element = document.getElementById(sectionId)
       if (element) {
         observer.observe(element)

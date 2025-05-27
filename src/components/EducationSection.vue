@@ -8,6 +8,9 @@
           <div>
             <div class="font-medium text-[#64ffda]">{{ edu.school }}</div>
             <div class="text-[#ccd6f6]">{{ edu.degree }}</div>
+            <ul v-if="edu.courses" class="list-disc list-inside mt-2 text-[#8892b0] text-sm">
+              <li v-for="course in edu.courses" :key="course">{{ course }}</li>
+            </ul>
           </div>
         </div>
       </div>
