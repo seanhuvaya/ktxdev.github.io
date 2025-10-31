@@ -126,7 +126,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-16 text-center text-slate-400 text-sm">
-          <p>Built with React, TypeScript, and Tailwind CSS</p>
+          <p>Copyright © 2025 Sean Huvaya. All rights reserved.</p>
         </div>
       </div>
     </section>
