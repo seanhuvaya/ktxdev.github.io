@@ -1,0 +1,15 @@
+services:
+  portfolio:
+    image: nginx:alpine
+    container_name: portfolio
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    networks:
+      - proxy-net
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"  # Optional: auto updates nginx image
+
+networks:
+  proxy-net:
+    external: true
