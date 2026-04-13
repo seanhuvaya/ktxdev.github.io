@@ -26,6 +26,12 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Inspect build output
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 2 -type d | sort
+
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
