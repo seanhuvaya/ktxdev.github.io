@@ -2,9 +2,8 @@ name: Deploy Portfolio to VPS
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -17,8 +16,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: 'npm'
+          node-version: 20
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -26,40 +25,32 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Inspect build output
+      - name: Verify build output
         run: |
           pwd
           ls -la
-          find . -maxdepth 2 -type d | sort
+          ls -la dist
 
-      - name: Deploy to VPS
+      - name: Copy dist to VPS
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          source: "dist/*"
+          target: "~/ktxdev.github.io/html"
+          rm: true
+
+      - name: Restart portfolio container
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_PORT || 22 }}
+          port: ${{ secrets.VPS_PORT }}
           script: |
             set -e
-
-            echo "Starting deployment..."
-
-            # Go to portfolio directory
             cd ~/ktxdev.github.io
-
-            # Backup current build
-            if [ -d "html" ] && [ "$(ls -A html)" ]; then
-              cp -r html html-backup-$(date +%Y%m%d-%H%M)
-            fi
-
-            # Clear old files and copy new build
-            rm -rf html/*
-            rsync -av --delete ${{ github.workspace }}/dist/ ./html/
-
-            echo "Files copied successfully"
-
-            # Restart container to apply changes
             docker compose restart portfolio
-
-            echo "Portfolio deployed successfully!"
-            echo "Live at: https://yourdomain.com"
+            echo "Deployment complete"
