@@ -50,10 +50,10 @@ jobs:
             rm -rf html/*
             rsync -av --delete ${{ github.workspace }}/dist/ ./html/
 
-            echo "✅ Files copied successfully"
+            echo "Files copied successfully"
 
             # Restart container to apply changes
             docker compose restart portfolio
 
-            echo "🎉 Portfolio deployed successfully!"
-            echo "📍 Live at: https://yourdomain.com"
+            echo "Portfolio deployed successfully!"
+            echo "Live at: https://yourdomain.com"
