@@ -25,13 +25,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Verify build output
-        run: |
-          pwd
-          ls -la
-          ls -la dist
-
-      - name: Copy dist to VPS
+      - name: Upload build to VPS temp folder
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -39,10 +33,10 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
           source: "dist/*"
-          target: "~/ktxdev.github.io/html"
+          target: "~/ktxdev.github.io/deploy_tmp"
           rm: true
 
-      - name: Restart portfolio container
+      - name: Move build into html and restart container
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -52,5 +46,18 @@ jobs:
           script: |
             set -e
             cd ~/ktxdev.github.io
+
+            mkdir -p html
+            rm -rf html/*
+            shopt -s dotglob nullglob
+
+            if [ -d deploy_tmp/dist ]; then
+              mv deploy_tmp/dist/* html/
+            else
+              mv deploy_tmp/* html/
+            fi
+
+            rm -rf deploy_tmp
+
             docker compose restart portfolio
             echo "Deployment complete"
